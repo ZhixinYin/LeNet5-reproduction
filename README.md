@@ -35,7 +35,7 @@ Epochs: 10
 ![](images/TrainingAccuracy.png)
 
 
-## Difference from original paper
+## Differences from original paper
 1. Output layer is dense, while the original layer uses RBF units
 2. Adam optimisation is used, while the original one is simply SGD
 3. Learning rate decay is not used and fixed in this reproduction
