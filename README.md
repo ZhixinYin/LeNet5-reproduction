@@ -29,8 +29,8 @@ Epochs: 10
 ## Reproduced Results
 | Metric            | Value |
 | ----------------- | ----- |
-| Training accuracy | 99.37% |
-| Test accuracy     | 98.52% |
+| Training accuracy | 99.44% |
+| Test accuracy     | 98.44% |
 
 ![](images/TrainingAccuracy.png)
 
