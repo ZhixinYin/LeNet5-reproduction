@@ -32,7 +32,7 @@ Epochs: 10
 | Training accuracy | 99.37% |
 | Test accuracy     | 98.52% |
 
-![](images/Training_accuracy.png)
+![](images/TrainingAccuracy.png)
 
 
 ## Difference from original paper
