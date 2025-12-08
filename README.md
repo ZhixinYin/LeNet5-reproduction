@@ -32,6 +32,8 @@ Epochs: 10
 | Training accuracy | 99.37% |
 | Test accuracy     | 98.52% |
 
+![LeNet-5 Architecture](images/Training accuracy.png)
+
 
 ## Difference from original paper
 1. Output layer is dense, while the original layer uses RBF units
