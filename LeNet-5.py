@@ -9,7 +9,7 @@ train_ds = tf.keras.utils.image_dataset_from_directory(
     "/Users/zhixinyin/Desktop/Couvolutional Nerual Networks/LeNet-5/mnist_png-master/mnist_png/training",
     image_size = (28, 28),
     color_mode = "grayscale",
-    batch_size = 64,
+    batch_size = 128,
     label_mode = "int"
 )
 
@@ -17,7 +17,7 @@ test_ds = tf.keras.utils.image_dataset_from_directory(
     "/Users/zhixinyin/Desktop/Couvolutional Nerual Networks/LeNet-5/mnist_png-master/mnist_png/testing",
     image_size = (28, 28),
     color_mode = "grayscale",
-    batch_size = 64,
+    batch_size = 128,
     label_mode = "int"
 )
 
@@ -65,6 +65,37 @@ class C3Layer(tfla.Layer):
             outputs.append(conv(subset))
         
         return(tf.concat(outputs, axis=-1))
+    
+class SubsamplingLayer(tfla.Layer):
+    def __init__(self):
+        super().__init__()
+        self.a = None
+        self.b = None
+        self.pool = tfla.AveragePooling2D(pool_size = 2)
+    
+    def build(self, input_shape):
+        channels = input_shape[-1]
+        self.a = self.add_weight(
+            shape=(channels,),
+            initializer="ones",
+            trainable=True,
+            name="scale"
+        )
+
+        self.b = self.add_weight(
+            shape=(channels,),
+            initializer="zeros",
+            trainable=True,
+            name="bias"
+        )
+
+    def call(self, x):
+        p = self.pool(x)
+
+        a = tf.reshape(self.a, (1, 1, 1, -1))
+        b = tf.reshape(self.b, (1, 1, 1, -1))
+
+        return(activation_function(a * p + b))
 
 
 inputs = tfla.Input(shape=(32, 32, 1))
@@ -72,12 +103,12 @@ inputs = tfla.Input(shape=(32, 32, 1))
 x = tfla.Conv2D(6, kernel_size=5, activation=activation_function, padding="valid",
                         input_shape=(32, 32, 1))(inputs)
     
-x = tfla.AveragePooling2D(pool_size = 2)(x)
+x = SubsamplingLayer()(x)
 
 # customed conv layer with partial connection
 x = C3Layer()(x)
 
-x = tfla.AveragePooling2D(pool_size = 2)(x)
+x = SubsamplingLayer()(x)
 
 # conv layer, but actually act like fully connected layer
 x = tfla.Conv2D(120, kernel_size=5, activation=activation_function, padding="valid")(x)
