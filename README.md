@@ -32,7 +32,7 @@ Epochs: 10
 | Training accuracy | 99.37% |
 | Test accuracy     | 98.52% |
 
-![LeNet-5 Architecture](images/Training accuracy.png)
+![LeNet-5 Architecture](images/Training_accuracy.png)
 
 
 ## Difference from original paper
