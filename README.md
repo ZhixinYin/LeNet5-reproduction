@@ -45,6 +45,5 @@ Epochs: 10
 LeCun, Y., Bottou, L., Bengio, Y., & Haffner, P. (1998).
 Gradient-Based Learning Applied to Document Recognition.
 Proceedings of the IEEE.
-
 myleott. (2014). mnist_png: MNIST in PNG format [Data set].
 GitHub. https://github.com/myleott/mnist_png
