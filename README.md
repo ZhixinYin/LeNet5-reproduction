@@ -17,7 +17,7 @@ This project reproduces the original LeNet-5 architecture as described in LeCun�
 | Output | Dense                      | 10   | —      | —      | class logits |
 
 ## Dataset
-The dataset comes from MNIST, which is 28×28 and they are pad to 32×32.
+The dataset comes from MNIST, which is 28×28 and they are pad to 32×32. The data is in mnist_png-master.zip
 
 ## Training Setup
 Learning rate: 0.001
