@@ -17,7 +17,7 @@ This project reproduces the original LeNet-5 architecture as described in LeCun�
 | Output | Dense                      | 10   | —      | —      | class logits |
 
 ## Dataset
-The dataset comes from MNIST, which is 28×28 and they are pad to 32×32.
+The dataset comes from MNIST, which is 28×28 and they are pad to 32×32. The data is in mnist_png-master.zip
 
 ## Training Setup
 Learning rate: 0.001
@@ -29,13 +29,13 @@ Epochs: 10
 ## Reproduced Results
 | Metric            | Value |
 | ----------------- | ----- |
-| Training accuracy | 99.37% |
-| Test accuracy     | 98.52% |
+| Training accuracy | 99.44% |
+| Test accuracy     | 98.44% |
 
-![LeNet-5 Architecture](images/Training_accuracy.png)
+![](images/TrainingAccuracy.png)
 
 
-## Difference from original paper
+## Differences from original paper
 1. Output layer is dense, while the original layer uses RBF units
 2. Adam optimisation is used, while the original one is simply SGD
 3. Learning rate decay is not used and fixed in this reproduction
